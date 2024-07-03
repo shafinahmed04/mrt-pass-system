@@ -1,1 +1,15 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include <ctime>
 
+using namespace std;
+
+struct User {
+    string phoneNumber;
+    string NID;
+    string password;
+    bool hasMRTPass;
+    time_t rechargeExpiry;
+    int balance;
+};

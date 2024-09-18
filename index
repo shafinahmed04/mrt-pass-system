@@ -13,3 +13,24 @@ struct User {
     time_t rechargeExpiry;
     int balance;
 };
+map<string, User> users; 
+
+void registerUser() {
+    string username, phoneNumber, NID, password;
+    cout << "Enter username: ";
+    cin >> username;
+    cout << "Enter phone number: ";
+    cin >> phoneNumber;
+    cout << "Enter NID: ";
+    cin >> NID;
+    cout << "Enter password: ";
+    cin >> password;
+
+    if (users.find(username) != users.end()) {
+        cout << "Username already exists!" << endl;
+        return;
+    }
+
+    users[username] = { phoneNumber, NID, password, false, 0, 0 };
+    cout << "Registration successful!" << endl;
+}

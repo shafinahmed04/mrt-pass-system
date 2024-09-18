@@ -79,3 +79,15 @@ void rechargeMRTPass(string &loggedInUser) {
         cout << "Minimum recharge amount is 500 taka!" << endl;
     }
 }
+void returnMRTPass(string &loggedInUser) {
+    if (users[loggedInUser].hasMRTPass) {
+        users[loggedInUser].hasMRTPass = false;
+        cout << "MRT pass returned successfully!" << endl;
+    } else {
+        cout << "You do not have an MRT pass to return!" << endl;
+    }
+}
+
+void exitSystem() {
+    cout << "Exiting system. Goodbye!" << endl;
+}

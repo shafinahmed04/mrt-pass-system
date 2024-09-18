@@ -34,3 +34,20 @@ void registerUser() {
     users[username] = { phoneNumber, NID, password, false, 0, 0 };
     cout << "Registration successful!" << endl;
 }
+
+bool login(string &loggedInUser) {
+    string username, password;
+    cout << "Enter username: ";
+    cin >> username;
+    cout << "Enter password: ";
+    cin >> password;
+
+    if (users.find(username) != users.end() && users[username].password == password) {
+        loggedInUser = username;
+        cout << "Login successful!" << endl;
+        return true;
+    } else {
+        cout << "Invalid username or password!" << endl;
+        return false;
+    }
+}

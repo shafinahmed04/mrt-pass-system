@@ -91,3 +91,53 @@ void returnMRTPass(string &loggedInUser) {
 void exitSystem() {
     cout << "Exiting system. Goodbye!" << endl;
 }
+int main() {
+    int choice;
+    string loggedInUser;
+
+    do {
+        cout << "\n1. Register\n2. Login\n3. Exit\nChoose an option: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                registerUser();
+                break;
+            case 2:
+                if (login(loggedInUser)) {
+                    int loginChoice;
+                    do {
+                        cout << "\n1. Buy MRT Pass\n2. Recharge MRT Pass\n3. Return MRT Pass\n4. Logout\nChoose an option: ";
+                        cin >> loginChoice;
+
+                        switch (loginChoice) {
+                            case 1:
+                                buyMRTPass(loggedInUser);
+                                break;
+                            case 2:
+                                rechargeMRTPass(loggedInUser);
+                                break;
+                            case 3:
+                                returnMRTPass(loggedInUser);
+                                break;
+                            case 4:
+                                cout << "Logged out successfully!" << endl;
+                                break;
+                            default:
+                                cout << "Invalid choice!" << endl;
+                                break;
+                        }
+                    } while (loginChoice != 4);
+                }
+                break;
+            case 3:
+                exitSystem();
+                break;
+            default:
+                cout << "Invalid choice!" << endl;
+                break;
+        }
+    } while (choice != 3);
+
+    return 0;
+}
